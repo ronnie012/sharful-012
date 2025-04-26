@@ -1,0 +1,164 @@
+/* Color variables */
+:root {
+  --white-color: #fff;
+  --bg-color: #fff;
+  --gray-color: #ccc;
+}
+
+header.fixed-top {
+  /* Use RGBA for background color with transparency.
+     This uses Bootstrap's dark color (#212529) but makes it semi-transparent.
+     Adjust the last value (alpha) between 0 (fully transparent) and 1 (fully opaque).
+     0.75 or 0.8 often looks good for a subtle effect. */
+  background-color: rgba(33, 37, 41, 0.05); /* Example: 75% opaque dark */
+
+  /* Apply the blur effect to the area *behind* the element */
+  backdrop-filter: blur(10px); /* Adjust blur amount (e.g., 5px, 15px) */
+  -webkit-backdrop-filter: blur(10px); /* Vendor prefix for Safari */
+
+  /* Ensure it stays above other content (Bootstrap's default for fixed-top is 1030) */
+  /* color: red; !important; */
+  z-index: 1030;
+}
+
+header.fixed-top .navbar-brand {
+  color: red;
+}
+
+/* Changing background color */
+body {
+  background: var(--bg-color) !important;
+  /* padding-top: 72px; */
+}
+
+/* Changing link color */
+.nav-item .nav-link {
+  color: green;
+  /* color: var(--white-color); */
+}
+
+/* Changing nav link color on hover */
+/* Correct hover syntax */
+/* .nav-item .nav-link:hover { 
+  color: red;
+} */
+
+/* --- Navbar Active Link Styling --- */
+
+/* Style for the active nav link */
+.navbar-dark .navbar-nav .nav-link.active {
+  color: red !important; /* Use red for the active link */
+  /* You could add other styles like font-weight: bold; */
+}
+
+/* Optional: Ensure hover is different or complements active state */
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: red; /* Example: Slightly different color on hover */
+  /* Or keep it the same as active if you prefer */
+  /* color: red; */
+}
+
+/* Ensure non-active, non-hover links have their default color */
+.navbar-dark .navbar-nav .nav-link {
+  /* You might need to explicitly set the default color
+     if overrides are causing issues, e.g.: */
+  /* color: rgba(255, 255, 255, 0.55); */
+  transition: color 0.2s ease-in-out; /* Smooth color transition */
+}
+
+
+/* Hero section background image */
+.hero {
+  height: 100vh;
+  background-image: url("../images/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#skills i {
+  height: 100px;
+  width: 100px;
+}
+
+#portfolio img {
+  height: 300px;
+  object-fit: cover;
+}
+
+#about .img,
+#about img,
+.hire-text h2 {
+  position: relative;
+}
+
+/* Timeline background line */
+#about .img::before {
+  content: "";
+  left: 50%;
+  width: 4px;
+  position: absolute;
+  height: calc(100% + 140px);
+  background: var(--gray-color);
+}
+
+#about img,
+#about .hire-text h2 {
+  width: 140px;
+}
+
+#about .hire-text h2 {
+  height: 140px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+}
+
+footer .social-icons a {
+  width: 30px;
+  height: 30px;
+}
+
+#cv img {
+  width: 230px;
+}
+
+/* --- Portfolio Card Enhancements --- */
+
+#portfolio .card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+#portfolio .card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+}
+
+/* Optional: Ensure the image scales nicely within the card */
+#portfolio .card img {
+    transition: transform 0.3s ease-in-out; /* If you want image-specific effects */
+}
+
+/* Contact section background image */
+#contact {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: url("../images/contact-bg.jpeg");
+}
+
+@media screen and (max-width: 990px) {
+  #skills .card {
+    width: calc(100% / 2 - 10px) !important;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  #skills .card,
+  #portfolio .card-wrapper {
+    width: 100% !important;
+  }
+}
